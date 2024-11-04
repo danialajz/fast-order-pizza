@@ -1,4 +1,5 @@
 import React from "react";
+import { formatCurrency } from "../../utils/helpers";
 
 function CartItem() {
   const { pizzaId, name, quantity, totalPrice } = item;
