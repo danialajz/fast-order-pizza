@@ -6,11 +6,12 @@ import Cart from "./feutures/cart/Cart";
 import CreateOrder from "./feutures/order/CreateOrder";
 import AppLayout from "./ui/AppLayout";
 import Error from "./ui/Error";
+import Order, { loader as orderLoader } from "./feutures/order/Order";
 
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
-    errorElement: <Error/>,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
         path: "/menu",
         element: <Menu />,
         loader: menuLoader,
-        errorElement: <Error/>,
+        errorElement: <Error />,
       },
       {
         path: "/cart",
@@ -32,7 +33,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/order/:orderId",
-        element: <Cart />,
+        element: <Order />,
+        loader: orderLoader,
+        errorElement: <Error />,
       },
     ],
   },
