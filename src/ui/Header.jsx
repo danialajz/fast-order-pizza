@@ -1,13 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SearchOrder from "../feutures/order/SearchOrder";
+import UserName from "../feutures/user/UserName";
 
 function Header() {
   return (
-    <header>
-      <Link to="/">Fast Order Pizzas.</Link>
+    <header className="bg-yellow-500">
+      <Link to="/" className="tracking-widest">
+        Fast Order Pizzas.
+      </Link>
       <SearchOrder />
-      <p>Danial</p>
+      <UserName />
     </header>
   );
 }
