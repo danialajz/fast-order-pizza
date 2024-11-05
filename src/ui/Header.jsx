@@ -5,7 +5,7 @@ import UserName from "../feutures/user/UserName";
 
 function Header() {
   return (
-    <header className="bg-yellow-500">
+    <header className="border-b border-stone-200 bg-yellow-500 px-4 py-3 uppercase">
       <Link to="/" className="tracking-widest">
         Fast Order Pizzas.
       </Link>
