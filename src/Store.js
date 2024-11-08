@@ -1,10 +1,10 @@
 import React from "react";
 import { configureStore } from "@reduxjs/toolkit";
-import useReducer from "./feutures/user/userSlice";
+import useSlice from "./feutures/user/UseSlice";
 
 const store = configureStore({
   reducer: {
-    user: useReducer,
+    user: useSlice,
   },
 });
 
