@@ -4,7 +4,7 @@ import { formatCurrency } from "../../utils/helpers";
 import { addItem } from "../cart/CartSlice";
 
 function MenuItem({ pizza }) {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
   function handelAddToCart() {
     const newItem = {
@@ -14,7 +14,7 @@ function MenuItem({ pizza }) {
       unitPrice,
       totalPrice: unitPrice + 1,
     };
-    dispatch(addItem(newItem));
+    dispatch(addItem(newItem))
   }
 
   return (
