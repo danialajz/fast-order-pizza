@@ -8,7 +8,8 @@ import {
   formatDate,
 } from "../../utils/helpers";
 import OrderItem from "./OrderItem";
-
+import store from "../../store";
+import { clearCart } from "../cart/CartSlice";
 function Order() {
   // Everyone can search for all orders, so for privacy reasons we're gonna gonna exclude names or address, these are only for the restaurant staff
   const order = useLoaderData();
@@ -52,7 +53,7 @@ function Order() {
       </div>
       <ul className="divide-y divide-stone-200 border-b border-t">
         {cart.map((item) => (
-          <OrderItem item={item} key={item.id} />
+          <OrderItem item={item} key={item.pizzaId} />
         ))}
       </ul>
 
@@ -75,6 +76,7 @@ function Order() {
 
 export async function loader({ params }) {
   const order = await getOrder(params.orderId);
+  store.dispatch(clearCart);
   return order;
 }
 export default Order;
