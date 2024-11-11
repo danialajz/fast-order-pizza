@@ -92,7 +92,6 @@ function CreateOrder() {
                 onClick={(e) => {
                   e.preventDefault();
                   dispatch(fetchAddress());
-                  console.log(fetchAddress);
                 }}
               >
                 Get Position
@@ -138,7 +137,7 @@ function CreateOrder() {
 export async function action({ request }) {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
-  console.log(data);
+
   const order = {
     ...data,
     cart: JSON.parse(data.cart),
@@ -148,7 +147,7 @@ export async function action({ request }) {
   if (!isValidPhone(order.phone))
     errors.phone = "please enter a valid phone number";
   if (Object.keys(errors).length > 0) return errors;
-  console.log(order);
+
   const newOrder = await createOrder(order);
 
   return redirect(`/order/${newOrder.id}`);
